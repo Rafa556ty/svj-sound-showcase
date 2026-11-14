@@ -15,6 +15,12 @@ export function svjPartMaterial(name: string): string | null {
     case "GlassOrangeLights": return SVJ_BRAKE_LENS;
     case "CARROSSERIE": return "svj_paint";
     case "WheelTireBump": return "svj_tyre";
+    case "WheelMetalBlack": return "svj_rim";
+    // Disc and centre lock turn with the wheel; calipers stay bolted to the car.
+    case "Material.005": return "svj_rotor";
+    case "Material.006": return "svj_wheel_hub";
+    case "Material.004":
+    case "MetalRedEngine": return "svj_caliper";
     default: return null;
   }
 }
