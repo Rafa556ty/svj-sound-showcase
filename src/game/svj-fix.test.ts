@@ -15,3 +15,15 @@ describe("SVJ lamps", () => {
     expect(lampLevels(false, true, true).brake).toBeGreaterThan(0);
   });
 });
+
+import { NEW_CAR_WHEEL } from "./models3d";
+describe("SVJ wheels", () => {
+  it("disc and hub spin with the wheel, calipers do not", () => {
+    const spins = (m: string) => NEW_CAR_WHEEL.test(svjPartMaterial(m)!) && !/call?iper/.test(svjPartMaterial(m)!);
+    expect(spins("Material.005")).toBe(true);
+    expect(spins("Material.006")).toBe(true);
+    expect(spins("WheelTireBump")).toBe(true);
+    expect(spins("Material.004")).toBe(false);
+    expect(spins("MetalRedEngine")).toBe(false);
+  });
+});
